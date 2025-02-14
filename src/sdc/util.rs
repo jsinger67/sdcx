@@ -375,7 +375,7 @@ impl<'a> StrictMatcher<'a> {
     }
 }
 
-impl<'a> Matcher for StrictMatcher<'a> {
+impl Matcher for StrictMatcher<'_> {
     fn m(&self, x: &str) -> bool {
         self.text == x
     }
@@ -427,7 +427,7 @@ impl<'a, 'b> LazyMatcher<'a, 'b> {
     }
 }
 
-impl<'a, 'b> Matcher for LazyMatcher<'a, 'b> {
+impl Matcher for LazyMatcher<'_, '_> {
     fn m(&self, x: &str) -> bool {
         if self.text == x {
             true
